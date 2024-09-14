@@ -1,0 +1,239 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.search-bar {
+  margin-top: 10px;
+}
+
+.search-bar textarea {
+  padding: 8px;
+  width: 70%;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  resize: none;
+  line-height: 1.5;
+}
+
+.search-bar button {
+  padding: 8px 12px;
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.search-bar button:hover {
+  background-color: #218838;
+}
+
+.filter-options {
+  margin-bottom: 20px;
+}
+
+.filter-options select {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.video-thumbnails h2 {
+  margin-bottom: 10px;
+}
+
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+}
+
+.video-item {
+  background-color: #fff;
+  padding: 10px;
+  border: 1px solid #270202;
+  border-radius: 5px;
+  text-align: center;
+  transition: box-shadow 0.3s ease;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.video-item:hover {
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+.video-item img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.video-item h3 {
+  margin: 10px 0;
+  font-size: 18px;
+  color: #333;
+}
+
+.video-item p {
+  color: #777;
+  font-size: 14px;
+}
+
+.video-item button {
+  margin-top: 10px;
+  padding: 8px 12px;
+  color: #fff;
+  font-weight: bolder;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 10px;
+}
+
+.submit-button {
+  background-color: #129b47;
+}
+
+.similarity-button {
+  background-color: #2146b5;
+}
+
+.video-item button:hover {
+  background-color: #0056b3;
+}
+
+/* Modal styling */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding-top: 60px;
+}
+
+.modal-content {
+  position: relative;
+  margin: 5% auto;
+  width: 90%;
+  max-width: 1200px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: flex-start;
+  box-sizing: border-box;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  color: #333;
+  cursor: pointer;
+}
+
+.modal-video {
+  flex: 2;
+  padding: 10px;
+}
+
+.modal-video video {
+  width: 100%;
+  height: auto;
+  max-height: 500px;
+  /* Adjust height as needed */
+  border-radius: 5px;
+  border: 2px solid #333;
+  /* Add border to the video */
+}
+
+.modal-info {
+  flex: 1;
+  padding: 10px;
+  border: 2px solid #333;
+  /* Add border to the video information */
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  width: 100%;
+  margin-left: 20px;
+  /* Add margin to separate from video */
+}
+
+.modal-info h3 {
+  margin-top: 0;
+}
+
+.modal-control {
+  display: flex;
+  align-items: center;
+}
+
+.modal-controls {
+  display: flex;
+  /*flex-direction: column;*/
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.modal-controls button {
+  padding: 10px 15px;
+  font-size: 14px;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.modal-controls button:hover {
+  opacity: 0.8;
+}
+
+.modal-controls .ocr-button {
+  background-color: #007bff;
+  /* Adjust color as needed */
+}
+
+.modal-controls .speech-button {
+  background-color: #28a745;
+  /* Adjust color as needed */
+}
+
+.modal-controls .submit-button {
+  background-color: #dc3545;
+  /* Adjust color as needed */
+}
+
+.modal-controls input[type="range"] {
+  margin-top: 10px;
+  width: 100%;
+}

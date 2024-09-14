@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Video Browsing System</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .headerlogo {
+            background-color: white;
+            color: #00429d;
+            padding: 5px;
+            display: flex;
+            align-items: center;
+            border-radius: 3px;
+            margin-bottom: 1px;
+            margin-right: 10px;
+            margin-left: 10px;
+        }
+
+        .school-name {
+            margin-top: 7px;
+            margin-bottom: 7px;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="headerlogo">
+
+        <div class="headerlogo">
+            <img src="Logo-VNU30.webp" width="120px" height="90px" alt="PTNK">
+            <img src="Logo-PTNK-01-xan.webp" width="100px" height="100px" alt="PTNK">
+        </div>
+        <div class="school-name">
+            <h2 class="school-name">Đại học Quốc gia TP. Hồ Chí Minh</h2>
+            <h1 class="school-name">Trường Phổ thông Năng khiếu</h1>
+        </div>
+    </header>
+    <div class="container">
+        <header>
+            <h1>Advanced Video Browsing System</h1>
+            <div class="search-bar">
+                <textarea id="searchInput" placeholder="Search videos..."
+                    onkeydown="handleSearchShortcut(event)"></textarea>
+                <div>
+                    <button onclick="searchVideos()">Search</button>
+                    <label>
+                        <input type="checkbox" id="ocrCheckbox"> OCR
+                    </label>
+                    <label>
+                        <input type="checkbox" id="speechCheckbox"> Speech-to-Text
+                    </label>
+                </div>
+            </div>
+        </header>
+
+        <section class="filter-options">
+            <h2>Filter Videos</h2>
+            <select id="categoryFilter" onchange="filterVideos()">
+                <option value="all">All</option>
+                <option value="fun">Fun</option>
+                <option value="educational">Educational</option>
+                <option value="documentary">Documentary</option>
+            </select>
+        </section>
+
+        <section class="video-thumbnails">
+            <h2>Video Thumbnails</h2>
+            <div class="video-grid" id="videoGrid">
+                <!-- Video thumbnails will be inserted here by JavaScript -->
+                <div class="video-item" onclick="openVideoModal('video1.mp4', 'Video 1', 'Fun video about cats')">
+                    <img src="thumb1.jpg" alt="Video 1">
+                    <h3>Video 1</h3>
+                    <p>Fun video about cats</p>
+                    <button onclick="event.stopPropagation(); submitForm()">
+                        <i class="fas fa-check"></i>
+                    </button>
+                    <button onclick="event.stopPropagation(); findSimilarity('video1.mp4')"><i
+                            class="fas fa-search"></i></button>
+                </div>
+                <div class="video-item"
+                    onclick="openVideoModal('video2.mp4', 'Video 2', 'Educational video on science')">
+                    <img src="thumb2.jpg" alt="Video 2">
+                    <h3>Video 2</h3>
+                    <p>Educational video on science</p>
+                    <button onclick="event.stopPropagation(); submitForm()">
+                        <i class="fas fa-check"></i>
+                    </button>
+                    <button onclick="event.stopPropagation(); findSimilarity('video2.mp4')"><i
+                            class="fas fa-search"></i></button>
+                </div>
+                <div class="video-item" onclick="openVideoModal('video3.mp4', 'Video 3', 'Documentary about nature')">
+                    <img src="thumb3.jpg" alt="Video 3">
+                    <h3>Video 3</h3>
+                    <p>Documentary about nature</p>
+                    <button onclick="event.stopPropagation(); submitForm()">
+                        <i class="fas fa-check"></i>
+                    </button>
+                    <button onclick="event.stopPropagation(); findSimilarity('video3.mp4')"><i
+                            class="fas fa-search"></i></button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Modal for video playback -->
+        <div id="videoModal" class="modal">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div class="modal-content">
+                <div class="modal-video">
+                    <video id="modalVideo" controls>
+                        <source id="modalVideoSource" src="" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="modal-controls">
+                        <button class="ocr-button" onclick="triggerOCR()">
+                            <i class="fas fa-camera"></i> <!-- Example icon for OCR -->
+                        </button>
+                        <button class="speech-button" onclick="triggerSpeechToText()">
+                            <i class="fas fa-microphone"></i> <!-- Example icon for Speech-to-Text -->
+                        </button>
+                        <button class="submit-button" onclick="submitForm()">
+                            <i class="fas fa-check"></i> <!-- Submit icon -->
+                        </button>
+                    </div>
+                </div>
+                <div class="modal-info">
+                    <h3>VIDEO TITLE</h3>
+                    <p>Video information here</p>
+                    <div class="modal-controls">
+                        <input type="range" id="videoSize" min="70" max="90" value="2"
+                            onchange="adjustVideoSize(this.value)">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
